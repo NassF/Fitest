@@ -15,6 +15,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.SetOptions
 import com.google.firebase.ktx.Firebase
+import kotlinx.android.synthetic.main.activity_auth.*
 import kotlinx.android.synthetic.main.activity_body_params_edit.*
 
 
@@ -99,11 +100,7 @@ class Params_Edit : AppCompatActivity() {
             }
             R.id.button_save -> {
                 editParam()
-                Toast.makeText(
-                    baseContext, "Так держать!",
-                    Toast.LENGTH_SHORT
-                ).show()
-                startActivity(Intent(this, Params_Sportsmen::class.java))
+
             }
 
         }
@@ -115,28 +112,42 @@ class Params_Edit : AppCompatActivity() {
             val up =
                 ddb.collection("sportsmen")
                     .document(it)
+
             if(editWeight.text.toString().isNotEmpty()){
-                up
-                    .update(
-                        "weight2",editWeight.text.toString())
-                    .addOnSuccessListener {
-                    }
+                editWeight.error = "Введите данные"
+                editWeight.requestFocus()
+                return
             }
             if(editShoulder.text.toString().isNotEmpty()){
-                up
-                    .update(
-                        "shoulder2", editShoulder.text.toString())
-                    .addOnSuccessListener {
-                    }
+                editShoulder.error = "Введите данные"
+                editShoulder.requestFocus()
+                return
             }
             if(editBreast.text.toString().isNotEmpty()){
-                up
-                    .update(
-                        "breast2", editBreast.text.toString())
-                    .addOnSuccessListener {
-                    }
+                editBreast.error = "Введите данные"
+                editBreast.requestFocus()
+                return
             }
-
+            if(editButtocks.text.toString().isNotEmpty()){
+                editButtocks.error = "Введите данные"
+                editButtocks.requestFocus()
+                return
+            }
+            if(editHip.text.toString().isNotEmpty()){
+                editHip.error = "Введите данные"
+                editHip.requestFocus()
+                return
+            }
+            if(editWaist.text.toString().isNotEmpty()){
+                editWaist.error = "Введите данные"
+                editWaist.requestFocus()
+                return
+            }
+            if(editBiceps.text.toString().isNotEmpty()){
+                editBiceps.error = "Введите данные"
+                editBiceps.requestFocus()
+                return
+            }
             if(editTall.text.toString().isNotEmpty()){
                 up
                     .update(
@@ -144,43 +155,29 @@ class Params_Edit : AppCompatActivity() {
                     .addOnSuccessListener {
                     }
             }
-            if(editButtocks.text.toString().isNotEmpty()){
+            else {
                 up
                     .update(
-                        "buttock2",editButtocks.text.toString()
+                        "weight2", editWeight.text.toString(),
+                        "shoulder2", editShoulder.text.toString(),
+                        "breast2", editBreast.text.toString(),
+                        "buttock2", editButtocks.text.toString(),
+                        "hip2", editHip.text.toString(),
+                        "waist2", editWaist.text.toString(),
+                        "biceps2", editBiceps.text.toString()
                     )
                     .addOnSuccessListener {
-                    }
-            }
-
-            if(editHip.text.toString().isNotEmpty()){
-                up
-                    .update(
-                        "hip2",editHip.text.toString())
-                    .addOnSuccessListener {
+                        Toast.makeText(
+                            baseContext, "Так держать!",
+                            Toast.LENGTH_SHORT
+                        ).show()
+                        startActivity(Intent(this, Params_Sportsmen::class.java))
                     }
 
             }
-            if(editWaist.text.toString().isNotEmpty()){
-                up
-                    .update(
-                        "waist2",editWaist.text.toString())
-                    .addOnSuccessListener {
-                    }
-
-            }
-            if(editBiceps.text.toString().isNotEmpty()){
-                up
-                    .update(
-                        "biceps2",editBiceps.text.toString()
-                    )
-                    .addOnSuccessListener {
-                    }
-            }
-
         }
-
     }
+
     override fun onWindowFocusChanged(hasFocus: Boolean) {
         super.onWindowFocusChanged(hasFocus)
         if (hasFocus) hideSystemUI()

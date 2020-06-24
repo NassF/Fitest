@@ -231,7 +231,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_M")
-                                .update("Checkbox1", true)
+                                .update("Checkbox1", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -240,7 +240,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_T")
-                                .update("Checkbox1", true)
+                                .update("Checkbox1", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -249,7 +249,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_W")
-                                .update("Checkbox1", true)
+                                .update("Checkbox1", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -258,7 +258,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Th")
-                                .update("Checkbox1", true)
+                                .update("Checkbox1", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -267,7 +267,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_F")
-                                .update("Checkbox1", true)
+                                .update("Checkbox1", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -276,7 +276,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sat")
-                                .update("Checkbox1", true)
+                                .update("Checkbox1", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -285,17 +285,17 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sun")
-                                .update("Checkbox1", true)
+                                .update("Checkbox1", "true")
                                 .addOnSuccessListener {
                                 }
                         }
                     }
-                    /*  else {
+                    else {
                         if (monday.isChecked) {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_M")
-                                    .update("Checkbox1", false)
+                                    .update("Checkbox1", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -304,7 +304,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_T")
-                                    .update("Checkbox1", false)
+                                    .update("Checkbox1", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -313,7 +313,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_W")
-                                    .update("Checkbox1", false)
+                                    .update("Checkbox1", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -322,7 +322,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Th")
-                                    .update("Checkbox1", false)
+                                    .update("Checkbox1", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -331,7 +331,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_F")
-                                    .update("Checkbox1", false)
+                                    .update("Checkbox1", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -340,7 +340,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sat")
-                                    .update("Checkbox1", false)
+                                    .update("Checkbox1", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -349,12 +349,12 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sun")
-                                    .update("Checkbox1", false)
+                                    .update("Checkbox1", "false")
                                     .addOnSuccessListener {
                                     }
                             }
                         }
-                    }*/
+                    }
                 }
             }
             R.id.checkBox2 -> {
@@ -363,7 +363,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_M")
-                                .update("Checkbox2", true)
+                                .update("Checkbox2", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -372,7 +372,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_T")
-                                .update("Checkbox2", true)
+                                .update("Checkbox2", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -381,7 +381,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_W")
-                                .update("Checkbox2", true)
+                                .update("Checkbox2", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -390,7 +390,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Th")
-                                .update("Checkbox2", true)
+                                .update("Checkbox2", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -399,7 +399,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_F")
-                                .update("Checkbox2", true)
+                                .update("Checkbox2", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -408,7 +408,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sat")
-                                .update("Checkbox2", true)
+                                .update("Checkbox2", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -417,17 +417,17 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sun")
-                                .update("Checkbox2", true)
+                                .update("Checkbox2", "true")
                                 .addOnSuccessListener {
                                 }
                         }
                     }
-                    /*   else {
+                    else {
                         if (monday.isChecked) {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_M")
-                                    .update("Checkbox2", false)
+                                    .update("Checkbox2", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -436,7 +436,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_T")
-                                    .update("Checkbox2", false)
+                                    .update("Checkbox2", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -445,7 +445,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_W")
-                                    .update("Checkbox2", false)
+                                    .update("Checkbox2", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -454,7 +454,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Th")
-                                    .update("Checkbox2", false)
+                                    .update("Checkbox2", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -463,7 +463,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_F")
-                                    .update("Checkbox2", false)
+                                    .update("Checkbox2", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -472,7 +472,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sat")
-                                    .update("Checkbox2", false)
+                                    .update("Checkbox2", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -481,12 +481,12 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sun")
-                                    .update("Checkbox2", false)
+                                    .update("Checkbox2", "false")
                                     .addOnSuccessListener {
                                     }
                             }
                         }
-                    }*/
+                    }
                 }
             }
             R.id.checkBox3 -> {
@@ -495,7 +495,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_M")
-                                .update("Checkbox3", true)
+                                .update("Checkbox3", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -504,7 +504,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_T")
-                                .update("Checkbox3", true)
+                                .update("Checkbox3", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -513,7 +513,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_W")
-                                .update("Checkbox3", true)
+                                .update("Checkbox3", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -522,7 +522,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Th")
-                                .update("Checkbox3", true)
+                                .update("Checkbox3", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -531,7 +531,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_F")
-                                .update("Checkbox3", true)
+                                .update("Checkbox3", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -540,7 +540,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sat")
-                                .update("Checkbox3", true)
+                                .update("Checkbox3", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -549,17 +549,17 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sun")
-                                .update("Checkbox3", true)
+                                .update("Checkbox3", "true")
                                 .addOnSuccessListener {
                                 }
                         }
                     }
-                    /* else {
+                    else {
                         if (monday.isChecked) {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_M")
-                                    .update("Checkbox3", false)
+                                    .update("Checkbox3", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -568,7 +568,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_T")
-                                    .update("Checkbox3", false)
+                                    .update("Checkbox3", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -577,7 +577,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_W")
-                                    .update("Checkbox3", false)
+                                    .update("Checkbox3", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -586,7 +586,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Th")
-                                    .update("Checkbox3", false)
+                                    .update("Checkbox3", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -595,7 +595,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_F")
-                                    .update("Checkbox3", false)
+                                    .update("Checkbox3", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -604,7 +604,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sat")
-                                    .update("Checkbox3", false)
+                                    .update("Checkbox3", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -613,12 +613,12 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sun")
-                                    .update("Checkbox3", false)
+                                    .update("Checkbox3", "false")
                                     .addOnSuccessListener {
                                     }
                             }
                         }
-                    }*/
+                    }
                 }
             }
             R.id.checkBox4 -> {
@@ -627,7 +627,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_M")
-                                .update("Checkbox4", true)
+                                .update("Checkbox4", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -636,7 +636,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_T")
-                                .update("Checkbox4", true)
+                                .update("Checkbox4", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -645,7 +645,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_W")
-                                .update("Checkbox4", true)
+                                .update("Checkbox4", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -654,7 +654,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Th")
-                                .update("Checkbox4", true)
+                                .update("Checkbox4", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -663,7 +663,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_F")
-                                .update("Checkbox4", true)
+                                .update("Checkbox4", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -672,7 +672,7 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sat")
-                                .update("Checkbox4", true)
+                                .update("Checkbox4", "true")
                                 .addOnSuccessListener {
                                 }
                         }
@@ -681,17 +681,17 @@ class Pitanie : AppCompatActivity() {
                         Firebase.auth.currentUser?.uid?.let {
                             ddb.collection("eat")
                                 .document(it + "_Sun")
-                                .update("Checkbox4", true)
+                                .update("Checkbox4", "true")
                                 .addOnSuccessListener {
                                 }
                         }
                     }
-                    /*else {
+                    else {
                         if (monday.isChecked) {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_M")
-                                    .update("Checkbox4", false)
+                                    .update("Checkbox4", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -700,7 +700,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_T")
-                                    .update("Checkbox4", false)
+                                    .update("Checkbox4", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -709,7 +709,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_W")
-                                    .update("Checkbox4", false)
+                                    .update("Checkbox4", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -718,7 +718,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Th")
-                                    .update("Checkbox4", false)
+                                    .update("Checkbox4", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -727,7 +727,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_F")
-                                    .update("Checkbox4", false)
+                                    .update("Checkbox4", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -736,7 +736,7 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sat")
-                                    .update("Checkbox4", false)
+                                    .update("Checkbox4", "false")
                                     .addOnSuccessListener {
                                     }
                             }
@@ -745,12 +745,12 @@ class Pitanie : AppCompatActivity() {
                             Firebase.auth.currentUser?.uid?.let {
                                 ddb.collection("eat")
                                     .document(it+"_Sun")
-                                    .update("Checkbox4", false)
+                                    .update("Checkbox4", "false")
                                     .addOnSuccessListener {
                                     }
                             }
                         }
-                    }*/
+                    }
                 }
             }
             R.id.checkBox5 -> {
@@ -758,7 +758,7 @@ class Pitanie : AppCompatActivity() {
                     Firebase.auth.currentUser?.uid?.let {
                         ddb.collection("eat")
                             .document(it + "_M")
-                            .update("Checkbox5", true)
+                            .update("Checkbox5", "true")
                             .addOnSuccessListener {
                             }
                     }
@@ -767,7 +767,7 @@ class Pitanie : AppCompatActivity() {
                     Firebase.auth.currentUser?.uid?.let {
                         ddb.collection("eat")
                             .document(it + "_T")
-                            .update("Checkbox5", true)
+                            .update("Checkbox5", "true")
                             .addOnSuccessListener {
                             }
                     }
@@ -776,7 +776,7 @@ class Pitanie : AppCompatActivity() {
                     Firebase.auth.currentUser?.uid?.let {
                         ddb.collection("eat")
                             .document(it + "_W")
-                            .update("Checkbox5", true)
+                            .update("Checkbox5", "true")
                             .addOnSuccessListener {
                             }
                     }
@@ -785,7 +785,7 @@ class Pitanie : AppCompatActivity() {
                     Firebase.auth.currentUser?.uid?.let {
                         ddb.collection("eat")
                             .document(it + "_Th")
-                            .update("Checkbox5", true)
+                            .update("Checkbox5", "true")
                             .addOnSuccessListener {
                             }
                     }
@@ -794,7 +794,7 @@ class Pitanie : AppCompatActivity() {
                     Firebase.auth.currentUser?.uid?.let {
                         ddb.collection("eat")
                             .document(it + "_F")
-                            .update("Checkbox5", true)
+                            .update("Checkbox5", "true")
                             .addOnSuccessListener {
                             }
                     }
@@ -803,7 +803,7 @@ class Pitanie : AppCompatActivity() {
                     Firebase.auth.currentUser?.uid?.let {
                         ddb.collection("eat")
                             .document(it + "_Sat")
-                            .update("Checkbox5", true)
+                            .update("Checkbox5", "true")
                             .addOnSuccessListener {
                             }
                     }
@@ -812,76 +812,76 @@ class Pitanie : AppCompatActivity() {
                     Firebase.auth.currentUser?.uid?.let {
                         ddb.collection("eat")
                             .document(it + "_Sun")
-                            .update("Checkbox5", true)
+                            .update("Checkbox5", "true")
                             .addOnSuccessListener {
                             }
                     }
                 }
-                /*   else {
-                       if (monday.isChecked) {
-                           Firebase.auth.currentUser?.uid?.let {
-                               ddb.collection("eat")
-                                   .document(it+"_M")
-                                   .update("Checkbox5", false)
-                                   .addOnSuccessListener {
-                                   }
-                           }
-                       }
-                       if (tuesday.isChecked) {
-                           Firebase.auth.currentUser?.uid?.let {
-                               ddb.collection("eat")
-                                   .document(it+"_T")
-                                   .update("Checkbox5", false)
-                                   .addOnSuccessListener {
-                                   }
-                           }
-                       }
-                       if (wednesday.isChecked) {
-                           Firebase.auth.currentUser?.uid?.let {
-                               ddb.collection("eat")
-                                   .document(it+"_W")
-                                   .update("Checkbox5", false)
-                                   .addOnSuccessListener {
-                                   }
-                           }
-                       }
-                       if (thursday.isChecked) {
-                           Firebase.auth.currentUser?.uid?.let {
-                               ddb.collection("eat")
-                                   .document(it+"_Th")
-                                   .update("Checkbox5", false)
-                                   .addOnSuccessListener {
-                                   }
-                           }
-                       }
-                       if (friday.isChecked) {
-                           Firebase.auth.currentUser?.uid?.let {
-                               ddb.collection("eat")
-                                   .document(it+"_F")
-                                   .update("Checkbox5", false)
-                                   .addOnSuccessListener {
-                                   }
-                           }
-                       }
-                       if (saturday.isChecked) {
-                           Firebase.auth.currentUser?.uid?.let {
-                               ddb.collection("eat")
-                                   .document(it+"_Sat")
-                                   .update("Checkbox5", false)
-                                   .addOnSuccessListener {
-                                   }
-                           }
-                       }
-                       if (sunday.isChecked) {
-                           Firebase.auth.currentUser?.uid?.let {
-                               ddb.collection("eat")
-                                   .document(it+"_Sun")
-                                   .update("Checkbox5", false)
-                                   .addOnSuccessListener {
-                                   }
-                           }
-                       }
-                   }*/
+                else {
+                    if (monday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_M")
+                                .update("Checkbox5", "false")
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (tuesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_T")
+                                .update("Checkbox5", "false")
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (wednesday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_W")
+                                .update("Checkbox5", "false")
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (thursday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_Th")
+                                .update("Checkbox5", "false")
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (friday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_F")
+                                .update("Checkbox5", "false")
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (saturday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_Sat")
+                                .update("Checkbox5", "false")
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                    if (sunday.isChecked) {
+                        Firebase.auth.currentUser?.uid?.let {
+                            ddb.collection("eat")
+                                .document(it+"_Sun")
+                                .update("Checkbox5", "false")
+                                .addOnSuccessListener {
+                                }
+                        }
+                    }
+                }
 
             }
             R.id.trenning ->{

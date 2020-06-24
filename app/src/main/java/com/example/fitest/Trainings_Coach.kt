@@ -239,25 +239,25 @@ class Trainings_Coach : AppCompatActivity() {
     private fun check(snapshot: DocumentSnapshot?){
 
         if (snapshot != null) {
-            if (snapshot.get("Checkbox1") == true) {
+            if (snapshot.getString("Checkbox1") == "true") {
                 checkBox1.isChecked = true
             }
-            if (snapshot.get("Checkbox2") == true) {
+            if (snapshot.getString("Checkbox2") == "true") {
                 checkBox2.isChecked = true
             }
-            if (snapshot.get("Checkbox3") == true) {
+            if (snapshot.getString("Checkbox3") == "true") {
                 checkBox3.isChecked = true
             }
-            if (snapshot.get("Checkbox4") == true) {
+            if (snapshot.getString("Checkbox4") == "true") {
                 checkBox4.isChecked = true
             }
-            if (snapshot.get("Checkbox5") == true) {
+            if (snapshot.getString("Checkbox5") == "true") {
                 checkBox5.isChecked = true
             }
-            if (snapshot.get("Checkbox6") == true) {
+            if (snapshot.getString("Checkbox6") == "true") {
                 checkBox6.isChecked = true
             }
-            if (snapshot.get("Checkbox7") == true) {
+            if (snapshot.getString("Checkbox7") == "true") {
                 checkBox7.isChecked = true
             }
         }

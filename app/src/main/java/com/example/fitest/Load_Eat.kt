@@ -11,6 +11,7 @@ import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
 import com.google.firebase.firestore.FirebaseFirestore
 import kotlinx.android.synthetic.main.activity_body_params_edit.*
 import kotlinx.android.synthetic.main.activity_load_eat.*
+import kotlinx.android.synthetic.main.activity_sportsmen_anketa1.*
 
 
 class Load_Eat : AppCompatActivity() {
@@ -115,36 +116,58 @@ class Load_Eat : AppCompatActivity() {
                 startActivity(Client)
             }
             R.id.buttonSaveEat ->{
+                val FIELD__PATTERN = Regex(pattern = "[(0-9)(a-z)(A-Z)(а-я)(А-Я) -.,]{3,300}")
+
                 if(monday.isChecked){
                     val up=  ddb.collection("eat")
                         .document("test_load"+"_M") /*здесь будет айди спортсмена*/
-                    if(eat1txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
                         up
                             .update(
                                 "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat2txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
+                    }
+                    if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
                         up
                             .update(
-                                "eat2",eat2txt.text.toString()
+                                "eat2", eat2txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat3txt.text.toString().isNotEmpty()) {
+                    if(eat2txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat2txt.text.toString())) {
+                        eat2txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat2txt.requestFocus()
+                        return
+                    }
+                    if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
                         up
                             .update(
-                                "eat3",eat3txt.text.toString()
+                                "eat3", eat3txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat4txt.text.toString().isNotEmpty()) {
+                    if(eat3txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat3txt.text.toString())) {
+                        eat3txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat3txt.requestFocus()
+                        return
+                    }
+                    if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
                         up
                             .update(
-                                "eat4",eat4txt.text.toString()
+                                "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
+                    }
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
                     }
                     if(eat5txt.text.toString().isNotEmpty()) {
                         up
@@ -163,33 +186,54 @@ class Load_Eat : AppCompatActivity() {
                 if(tuesday.isChecked){
                     val up= ddb.collection("eat")
                         .document("test_load"+"_T") /*здесь будет айди спортсмена*/
-                    if(eat1txt.text.toString().isNotEmpty()) {
+
+                    if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
                         up
                             .update(
                                 "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat2txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
+                    }
+                    if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
                         up
                             .update(
-                                "eat2",eat2txt.text.toString()
+                                "eat2", eat2txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat3txt.text.toString().isNotEmpty()) {
+                    if(eat2txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat2txt.text.toString())) {
+                        eat2txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat2txt.requestFocus()
+                        return
+                    }
+                    if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
                         up
                             .update(
-                                "eat3",eat3txt.text.toString()
+                                "eat3", eat3txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat4txt.text.toString().isNotEmpty()) {
+                    if(eat3txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat3txt.text.toString())) {
+                        eat3txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat3txt.requestFocus()
+                        return
+                    }
+                    if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
                         up
                             .update(
-                                "eat4",eat4txt.text.toString()
+                                "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
+                    }
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
                     }
                     if(eat5txt.text.toString().isNotEmpty()) {
                         up
@@ -203,37 +247,58 @@ class Load_Eat : AppCompatActivity() {
                         baseContext, "Программа успешно загружена",
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
                 if(wednesday.isChecked){
                     val up=  ddb.collection("eat")
                         .document("test_load"+"_W") /*здесь будет айди спортсмена*/
-                    if(eat1txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
                         up
                             .update(
                                 "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat2txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
+                    }
+                    if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
                         up
                             .update(
-                                "eat2",eat2txt.text.toString()
+                                "eat2", eat2txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat3txt.text.toString().isNotEmpty()) {
+                    if(eat2txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat2txt.text.toString())) {
+                        eat2txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat2txt.requestFocus()
+                        return
+                    }
+                    if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
                         up
                             .update(
-                                "eat3",eat3txt.text.toString()
+                                "eat3", eat3txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat4txt.text.toString().isNotEmpty()) {
+                    if(eat3txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat3txt.text.toString())) {
+                        eat3txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat3txt.requestFocus()
+                        return
+                    }
+                    if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
                         up
                             .update(
-                                "eat4",eat4txt.text.toString()
+                                "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
+                    }
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
                     }
                     if(eat5txt.text.toString().isNotEmpty()) {
                         up
@@ -247,37 +312,58 @@ class Load_Eat : AppCompatActivity() {
                         baseContext, "Программа успешно загружена",
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
                 if(thursday.isChecked){
                     val up= ddb.collection("eat")
                         .document("test_load"+"_Th") /*здесь будет айди спортсмена*/
-                    if(eat1txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
                         up
                             .update(
                                 "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat2txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
+                    }
+                    if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
                         up
                             .update(
-                                "eat2",eat2txt.text.toString()
+                                "eat2", eat2txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat3txt.text.toString().isNotEmpty()) {
+                    if(eat2txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat2txt.text.toString())) {
+                        eat2txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat2txt.requestFocus()
+                        return
+                    }
+                    if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
                         up
                             .update(
-                                "eat3",eat3txt.text.toString()
+                                "eat3", eat3txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat4txt.text.toString().isNotEmpty()) {
+                    if(eat3txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat3txt.text.toString())) {
+                        eat3txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat3txt.requestFocus()
+                        return
+                    }
+                    if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
                         up
                             .update(
-                                "eat4",eat4txt.text.toString()
+                                "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
+                    }
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
                     }
                     if(eat5txt.text.toString().isNotEmpty()) {
                         up
@@ -291,37 +377,58 @@ class Load_Eat : AppCompatActivity() {
                         baseContext, "Программа успешно загружена",
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
                 if(friday.isChecked){
                     val up=    ddb.collection("eat")
                         .document("test_load"+"_F") /*здесь будет айди спортсмена*/
-                    if(eat1txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
                         up
                             .update(
                                 "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat2txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
+                    }
+                    if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
                         up
                             .update(
-                                "eat2",eat2txt.text.toString()
+                                "eat2", eat2txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat3txt.text.toString().isNotEmpty()) {
+                    if(eat2txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat2txt.text.toString())) {
+                        eat2txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat2txt.requestFocus()
+                        return
+                    }
+                    if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
                         up
                             .update(
-                                "eat3",eat3txt.text.toString()
+                                "eat3", eat3txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat4txt.text.toString().isNotEmpty()) {
+                    if(eat3txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat3txt.text.toString())) {
+                        eat3txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat3txt.requestFocus()
+                        return
+                    }
+                    if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
                         up
                             .update(
-                                "eat4",eat4txt.text.toString()
+                                "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
+                    }
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
                     }
                     if(eat5txt.text.toString().isNotEmpty()) {
                         up
@@ -335,37 +442,59 @@ class Load_Eat : AppCompatActivity() {
                         baseContext, "Программа успешно загружена",
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
+
                 if(saturday.isChecked){
                     val up=  ddb.collection("eat")
                         .document("test_load"+"_Sat") /*здесь будет айди спортсмена*/
-                    if(eat1txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
                         up
                             .update(
                                 "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat2txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
+                    }
+                    if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
                         up
                             .update(
-                                "eat2",eat2txt.text.toString()
+                                "eat2", eat2txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat3txt.text.toString().isNotEmpty()) {
+                    if(eat2txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat2txt.text.toString())) {
+                        eat2txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat2txt.requestFocus()
+                        return
+                    }
+                    if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
                         up
                             .update(
-                                "eat3",eat3txt.text.toString()
+                                "eat3", eat3txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat4txt.text.toString().isNotEmpty()) {
+                    if(eat3txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat3txt.text.toString())) {
+                        eat3txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat3txt.requestFocus()
+                        return
+                    }
+                    if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
                         up
                             .update(
-                                "eat4",eat4txt.text.toString()
+                                "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
+                    }
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
                     }
                     if(eat5txt.text.toString().isNotEmpty()) {
                         up
@@ -379,37 +508,59 @@ class Load_Eat : AppCompatActivity() {
                         baseContext, "Программа успешно загружена",
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
+
                 if(sunday.isChecked){
                     val up=  ddb.collection("eat")
                         .document("test_load"+"_Sun") /*здесь будет айди спортсмена*/
-                    if(eat1txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat1txt.text.toString())) {
                         up
                             .update(
                                 "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat2txt.text.toString().isNotEmpty()) {
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
+                    }
+                    if(eat2txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat2txt.text.toString())) {
                         up
                             .update(
-                                "eat2",eat2txt.text.toString()
+                                "eat2", eat2txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat3txt.text.toString().isNotEmpty()) {
+                    if(eat2txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat2txt.text.toString())) {
+                        eat2txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat2txt.requestFocus()
+                        return
+                    }
+                    if(eat3txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat3txt.text.toString())) {
                         up
                             .update(
-                                "eat3",eat3txt.text.toString()
+                                "eat3", eat3txt.text.toString()
                             )
                             .addOnSuccessListener {}
                     }
-                    if(eat4txt.text.toString().isNotEmpty()) {
+                    if(eat3txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat3txt.text.toString())) {
+                        eat3txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat3txt.requestFocus()
+                        return
+                    }
+                    if(eat4txt.text.toString().isNotEmpty()&& FIELD__PATTERN.matches(eat4txt.text.toString())) {
                         up
                             .update(
-                                "eat4",eat4txt.text.toString()
+                                "eat1", eat1txt.text.toString()
                             )
                             .addOnSuccessListener {}
+                    }
+                    if(eat1txt.text.toString().isNotEmpty()&& !FIELD__PATTERN.matches(eat1txt.text.toString())) {
+                        eat1txt.error = "Введите не менее 3 и не более 300 символов"
+                        eat1txt.requestFocus()
+                        return
                     }
                     if(eat5txt.text.toString().isNotEmpty()) {
                         up
@@ -423,6 +574,7 @@ class Load_Eat : AppCompatActivity() {
                         baseContext, "Программа успешно загружена",
                         Toast.LENGTH_SHORT
                     ).show()
+
                 }
 
             }

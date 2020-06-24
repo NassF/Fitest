@@ -90,12 +90,15 @@ class ListClient : AppCompatActivity() {
             false
         }
 
-        adapter =
-            ClientAdapter { Firebase.auth.currentUser!!.uid?.let {
+        val query = Firebase.auth.currentUser!!.uid.let {
 
-                refStates.limit(10).whereEqualTo("myTrener",it)
-                    .orderBy(sort, Query.Direction.ASCENDING)
-            }
+            refStates.limit(10).whereEqualTo("myTrener", it)
+                .orderBy(sort, Query.Direction.ASCENDING)
+        }
+
+        adapter =
+            ClientAdapter {
+                query
             }
 
         /*    adapter.onDeleteListener = { position ->
@@ -120,15 +123,45 @@ class ListClient : AppCompatActivity() {
         }*/
 
 
+        adapter.onClickListener = { position, email ->
+            Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
+                .show()
+            firestore.collection("sportsmen").get().addOnSuccessListener { documents ->
+                var value = ""
+                for (document in documents) {
+                    if (document.data.containsValue(email)) {
+                        value = document.id
+                        Log.i("Collection", "${email}=> ${document.data}")
+                    } else {
+                        Log.i("Collection", "${document.id}=> ${document.data}")
+                    }
 
-        adapter.onClickListener = { position ->
+
+                }
+                val intent = Intent(this, ProfileClientView::class.java)
+                Log.i("DocId", value)
+                intent.putExtra("id", value)
+                Log.i("Intent", value)
+
+                startActivity(intent)
+            }
+                .addOnFailureListener { exception ->
+                    Log.w("CollectionError", "Error getting documents: ", exception)
+                }
+
+        }
+
+
+
+
+       /* adapter.onClickListener = { position ->
             Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
                 .show()
             val value: String =  firestore.collection("sportsmen").document("it"+"id").toString()
             val intent = Intent(this, ProfileClientView::class.java)
             intent.putExtra("id", value)
             startActivity(intent)
-        }
+        }*/
         val list = findViewById<RecyclerView>(R.id.list)
         val layoutManager = LinearLayoutManager(this)
         list.adapter = adapter

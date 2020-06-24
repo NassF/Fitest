@@ -3,6 +3,7 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.Toast
 import com.example.fitest.ListClient.ListClient
@@ -37,6 +38,31 @@ class ProfileClientView : AppCompatActivity() {
         read()
     }
     private fun read() {
+
+var value = intent.getStringExtra("id")
+        Log.i("NewActivity", value)
+
+ddb.collection("sportsmen").document(value).addSnapshotListener{
+    snapshot, e ->
+    if (e != null) {
+        Toast.makeText(
+            baseContext, "Считать неудалось$e",
+            Toast.LENGTH_SHORT
+        ).show()
+        return@addSnapshotListener
+    }
+    if (snapshot != null && snapshot.exists()) {
+        textView5.text=snapshot.getString("email")
+        textView4.text=snapshot.getString("name")
+        textView6.text=snapshot.getString("phoneNumber")
+    }
+    else {
+        Toast.makeText(
+            baseContext, "Нет данных",
+            Toast.LENGTH_SHORT
+        ).show()
+    }
+}
 
         /*ddb.collection("sportsmen")
             .document(it)  //айди спортсмена должно передаваться из списка клиентов

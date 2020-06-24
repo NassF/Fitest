@@ -24,10 +24,12 @@ class ItemAdapter(query: QueryCreator) : FirestoreAdapter<State, ItemViewHolder>
             val position = holder.adapterPosition
             onUpListener?.invoke(position)
         }*/
-        holder.itemView.setOnClickListener {
+
+      /*  holder.itemView.setOnClickListener {
             val position = holder.adapterPosition
             onClickListener?.invoke(position)
-        }
+        }*/
+
         return holder
     }
 

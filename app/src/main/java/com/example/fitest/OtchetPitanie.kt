@@ -13,6 +13,7 @@ import com.google.firebase.firestore.FirebaseFirestore
 
 import kotlinx.android.synthetic.main.activity_otchet_eat.*
 import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox1
+import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox2
 import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox3
 import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox4
 import kotlinx.android.synthetic.main.activity_otchet_eat.checkBox5
@@ -21,16 +22,6 @@ import kotlinx.android.synthetic.main.activity_otchet_eat.eat2txt
 import kotlinx.android.synthetic.main.activity_otchet_eat.eat3txt
 import kotlinx.android.synthetic.main.activity_otchet_eat.eat4txt
 import kotlinx.android.synthetic.main.activity_otchet_eat.eat5txt
-import kotlinx.android.synthetic.main.activity_otchet_eat.friday
-import kotlinx.android.synthetic.main.activity_otchet_eat.imageView40
-import kotlinx.android.synthetic.main.activity_otchet_eat.imageView444
-import kotlinx.android.synthetic.main.activity_otchet_eat.imageView48
-import kotlinx.android.synthetic.main.activity_otchet_eat.monday
-import kotlinx.android.synthetic.main.activity_otchet_eat.saturday
-import kotlinx.android.synthetic.main.activity_otchet_eat.sunday
-import kotlinx.android.synthetic.main.activity_otchet_eat.thursday
-import kotlinx.android.synthetic.main.activity_otchet_eat.tuesday
-import kotlinx.android.synthetic.main.activity_otchet_eat.wednesday
 
 
 
@@ -68,7 +59,7 @@ class OtchetPitanie : AppCompatActivity() {
                     R.id.tuesday -> {
 
                         ddb.collection("eat")
-                            .document("test_week") /*здесь будет айди спортсмена*/
+                            .document("test_load"+"_T") /*здесь будет айди спортсмена*/
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -79,12 +70,13 @@ class OtchetPitanie : AppCompatActivity() {
                                 }
                                 if (snapshot != null && snapshot.exists()) {
 
-                                    val eat: List<String> = snapshot.get("tue") as List<String>
-                                    eat1txt.text = eat[0]
-                                    eat2txt.text = eat[1]
-                                    eat3txt.text = eat[2]
-                                    eat4txt.text = eat[3]
-                                    eat5txt.text = eat[4]
+                                    eat1txt.text = snapshot.getString("eat1")
+                                    eat2txt.text = snapshot.getString("eat2")
+                                    eat3txt.text = snapshot.getString("eat3")
+                                    eat4txt.text = snapshot.getString("eat4")
+                                    eat5txt.text = snapshot.getString("eat5")
+
+                                    check(snapshot)
 
                                 } else {
                                     Toast.makeText(
@@ -98,7 +90,7 @@ class OtchetPitanie : AppCompatActivity() {
                     R.id.wednesday -> {
 
                         ddb.collection("eat")
-                            .document("test_week") /*здесь будет айди спортсмена*/
+                            .document("test_load"+"_W") /*здесь будет айди спортсмена*/
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -108,11 +100,12 @@ class OtchetPitanie : AppCompatActivity() {
                                     return@addSnapshotListener
                                 }
                                 if (snapshot != null && snapshot.exists()) {
-                                    val eat: List<String> = snapshot.get("we") as List<String>
-                                    eat1txt.text = eat[0]
-                                    eat2txt.text = eat[1]
-                                    eat3txt.text = eat[2]
-                                    eat4txt.text = eat[3]
+                                    eat1txt.text = snapshot.getString("eat1")
+                                    eat2txt.text = snapshot.getString("eat2")
+                                    eat3txt.text = snapshot.getString("eat3")
+                                    eat4txt.text = snapshot.getString("eat4")
+                                    eat5txt.text = snapshot.getString("eat5")
+
                                     check(snapshot)
 
                                 } else {
@@ -127,7 +120,7 @@ class OtchetPitanie : AppCompatActivity() {
                     R.id.thursday ->{
 
                         ddb.collection("eat")
-                            .document("test_week") /*здесь будет айди спортсмена*/
+                            .document("test_load"+"_Th") /*здесь будет айди спортсмена*/
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -137,12 +130,12 @@ class OtchetPitanie : AppCompatActivity() {
                                     return@addSnapshotListener
                                 }
                                 if (snapshot != null && snapshot.exists()) {
-                                    val eat: List<String> = snapshot.get("thur") as List<String>
-                                    eat1txt.text = eat[0]
-                                    eat2txt.text = eat[1]
-                                    eat3txt.text = eat[2]
-                                    eat4txt.text = eat[3]
-                                    eat5txt.text = eat[4]
+                                    eat1txt.text = snapshot.getString("eat1")
+                                    eat2txt.text = snapshot.getString("eat2")
+                                    eat3txt.text = snapshot.getString("eat3")
+                                    eat4txt.text = snapshot.getString("eat4")
+                                    eat5txt.text = snapshot.getString("eat5")
+
                                     check(snapshot)
 
                                 } else {
@@ -156,7 +149,7 @@ class OtchetPitanie : AppCompatActivity() {
 
                     R.id.friday ->{
                         ddb.collection("eat")
-                            .document("test_week") /*здесь будет айди спортсмена*/
+                            .document("test_load"+"_F") /*здесь будет айди спортсмена*/
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -166,12 +159,12 @@ class OtchetPitanie : AppCompatActivity() {
                                     return@addSnapshotListener
                                 }
                                 if (snapshot != null && snapshot.exists()) {
-                                    val eat: List<String> = snapshot.get("fri") as List<String>
-                                    eat1txt.text = eat[0]
-                                    eat2txt.text = eat[1]
-                                    eat3txt.text = eat[2]
-                                    eat4txt.text = eat[3]
-                                    eat5txt.text = eat[4]
+                                    eat1txt.text = snapshot.getString("eat1")
+                                    eat2txt.text = snapshot.getString("eat2")
+                                    eat3txt.text = snapshot.getString("eat3")
+                                    eat4txt.text = snapshot.getString("eat4")
+                                    eat5txt.text = snapshot.getString("eat5")
+
                                     check(snapshot)
 
                                 } else {
@@ -185,7 +178,7 @@ class OtchetPitanie : AppCompatActivity() {
 
                     R.id.saturday ->{
                         ddb.collection("eat")
-                            .document("test_week") /*здесь будет айди спортсмена*/
+                            .document("test_load"+"_Sat") /*здесь будет айди спортсмена*/
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -196,12 +189,12 @@ class OtchetPitanie : AppCompatActivity() {
                                 }
                                 if (snapshot != null && snapshot.exists()) {
 
-                                    val eat: List<String> = snapshot.get("sat") as List<String>
-                                    eat1txt.text = eat[0]
-                                    eat2txt.text = eat[1]
-                                    eat3txt.text = eat[2]
-                                    eat4txt.text = eat[3]
-                                    eat5txt.text = eat[4]
+                                    eat1txt.text = snapshot.getString("eat1")
+                                    eat2txt.text = snapshot.getString("eat2")
+                                    eat3txt.text = snapshot.getString("eat3")
+                                    eat4txt.text = snapshot.getString("eat4")
+                                    eat5txt.text = snapshot.getString("eat5")
+
                                     check(snapshot)
 
                                 } else {
@@ -215,7 +208,7 @@ class OtchetPitanie : AppCompatActivity() {
 
                     R.id.sunday ->{
                         ddb.collection("eat")
-                            .document("test_week") /*здесь будет айди спортсмена*/
+                            .document("test_load"+"_Sun") /*здесь будет айди спортсмена*/
                             .addSnapshotListener { snapshot, e ->
                                 if (e != null) {
                                     Toast.makeText(
@@ -226,12 +219,12 @@ class OtchetPitanie : AppCompatActivity() {
                                 }
                                 if (snapshot != null && snapshot.exists()) {
 
-                                    val eat: List<String> = snapshot.get("sun") as List<String>
-                                    eat1txt.text = eat[0]
-                                    eat2txt.text = eat[1]
-                                    eat3txt.text = eat[2]
-                                    eat4txt.text = eat[3]
-                                    eat5txt.text = eat[4]
+                                    eat1txt.text = snapshot.getString("eat1")
+                                    eat2txt.text = snapshot.getString("eat2")
+                                    eat3txt.text = snapshot.getString("eat3")
+                                    eat4txt.text = snapshot.getString("eat4")
+                                    eat5txt.text = snapshot.getString("eat5")
+
                                     check(snapshot)
 
                                 } else {
@@ -252,7 +245,7 @@ class OtchetPitanie : AppCompatActivity() {
 
     private fun loadMon() {
         ddb.collection("eat")
-            .document("test_week") /*здесь будет айди спортсмена*/
+            .document("test_load"+"_M") /*здесь будет айди спортсмена*/
             .addSnapshotListener { snapshot, e ->
                 if (e != null) {
                     Toast.makeText(
@@ -263,14 +256,13 @@ class OtchetPitanie : AppCompatActivity() {
                 }
                 if (snapshot != null && snapshot.exists()) {
 
-                    val eat: List<String> = snapshot.get("mon") as List<String>
-                    eat1txt.text = eat[0]
-                    eat2txt.text = eat[1]
-                    eat3txt.text = eat[2]
-                    eat4txt.text = eat[3]
-                    eat5txt.text = eat[4]
-                    check(snapshot)
+                    eat1txt.text = snapshot.getString("eat1")
+                    eat2txt.text = snapshot.getString("eat2")
+                    eat3txt.text = snapshot.getString("eat3")
+                    eat4txt.text = snapshot.getString("eat4")
+                    eat5txt.text = snapshot.getString("eat5")
 
+                    check(snapshot)
                 }
                 else {
                     Toast.makeText(
@@ -283,20 +275,21 @@ class OtchetPitanie : AppCompatActivity() {
 
     private val ddb = FirebaseFirestore.getInstance()
     private fun check(snapshot: DocumentSnapshot?){
+
         if (snapshot != null) {
-            if (snapshot.get("Checkbox1") == true) {
+            if (snapshot.getString("Checkbox1") == "true") {
                 checkBox1.isChecked = true
             }
-            if (snapshot.get("Checkbox2") == true) {
+            if (snapshot.getString("Checkbox2") == "true") {
                 checkBox2.isChecked = true
             }
-            if (snapshot.get("Checkbox3") == true) {
+            if (snapshot.getString("Checkbox3") == "true") {
                 checkBox3.isChecked = true
             }
-            if (snapshot.get("Checkbox4") == true) {
+            if (snapshot.getString("Checkbox4") == "true") {
                 checkBox4.isChecked = true
             }
-            if (snapshot.get("Checkbox5") == true) {
+            if (snapshot.getString("Checkbox5") == "true") {
                 checkBox5.isChecked = true
             }
         }
