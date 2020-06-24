@@ -3,6 +3,7 @@ package com.example.fitest
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.EditText
@@ -35,8 +36,16 @@ class Chat_Coach : AppCompatActivity() {
             WindowManager.LayoutParams.FLAG_FULLSCREEN,
             WindowManager.LayoutParams.FLAG_FULLSCREEN);
         setContentView(R.layout.activity_chat_coach)
+        read()
         val messageChat = findViewById<EditText>(R.id.editText3)
     }
+
+    private fun read(){
+
+        var value = intent.getStringExtra("id")
+        Log.i("NewActivity", value)
+    }
+
     fun chatCoachClick(view: View) {
         when (view.id) {
             R.id.profile -> {

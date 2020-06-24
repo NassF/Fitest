@@ -1,5 +1,6 @@
 package com.example.fitest.RecyclerSpisocChatov
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
@@ -7,10 +8,13 @@ import android.view.ViewGroup
 import androidx.appcompat.widget.Toolbar
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.fitest.Chat_Coach
 import com.example.fitest.R
 import com.google.android.material.snackbar.Snackbar
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.Query
+import com.google.firebase.ktx.Firebase
 
 
 class SpisocChatov : AppCompatActivity() {
@@ -61,28 +65,46 @@ class SpisocChatov : AppCompatActivity() {
             false
         }
 
-        adapter = ChatAdapter({
-            refStates.limit(10)
-                .orderBy(sort, Query.Direction.ASCENDING)
-        })
+        val query = Firebase.auth.currentUser!!.uid.let {
 
-        /*    adapter.onDeleteListener = { position ->
-                //assume success, otherwise it will be updated in the next query
-                val state = adapter.get(position)
-                val snapshot = adapter.getSnapshot(position)
-               // delete(state, snapshot.reference)
+            refStates.limit(10).whereEqualTo("myTrener", it)
+                .orderBy(sort, Query.Direction.ASCENDING)
+        }
+
+        adapter =
+            ChatAdapter {
+                query
             }
 
-            adapter.onUpListener = { position ->
-                val state = adapter.get(position)
-                val snapshot = adapter.getSnapshot(position)
-              //  incrementPopulation(state, snapshot.reference)
-                //shows us waiting for the update
-            }*/
-        adapter.onClickListener = { position ->
+        adapter.onClickListener = { position, email ->
             Snackbar.make(root, "$position clicked", Snackbar.LENGTH_SHORT)
                 .show()
+            firestore.collection("sportsmen").get().addOnSuccessListener { documents ->
+                var value = ""
+                for (document in documents) {
+                    if (document.data.containsValue(email)) {
+                        value = document.id
+                        Log.i("Collection", "${email}=> ${document.data}")
+                    } else {
+                        Log.i("Collection", "${document.id}=> ${document.data}")
+                    }
+
+
+                }
+                val intent = Intent(this, Chat_Coach::class.java)
+                Log.i("DocId", value)
+                intent.putExtra("id", value)
+                Log.i("Intent", value)
+
+                startActivity(intent)
+            }
+                .addOnFailureListener { exception ->
+                    Log.w("CollectionError", "Error getting documents: ", exception)
+                }
+
         }
+
+
 
         val list = findViewById<RecyclerView>(R.id.list)
         val layoutManager = LinearLayoutManager(this)

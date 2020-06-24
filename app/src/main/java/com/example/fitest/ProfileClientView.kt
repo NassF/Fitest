@@ -64,29 +64,7 @@ ddb.collection("sportsmen").document(value).addSnapshotListener{
     }
 }
 
-        /*ddb.collection("sportsmen")
-            .document(it)  //айди спортсмена должно передаваться из списка клиентов
-            .addSnapshotListener { snapshot, e ->
-                if (e != null) {
-                    Toast.makeText(
-                        baseContext, "Считать неудалось$e",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    return@addSnapshotListener
-                }
-                if (snapshot != null && snapshot.exists()) {
-                    textView5.text=snapshot.getString("email")
-                    textView4.text=snapshot.getString("name")
-                    textView6.text=snapshot.getString("phoneNumber")
-                }
-                else {
-                    Toast.makeText(
-                        baseContext, "Нет данных",
-                        Toast.LENGTH_SHORT
-                    ).show()
-                }
 
-            }*/
 
     }
     private val ddb = FirebaseFirestore.getInstance()
