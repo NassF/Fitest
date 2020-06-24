@@ -4,9 +4,16 @@ import android.app.Activity
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.RadioGroup
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.fitest.ListClient.ListClient
+import com.example.fitest.RecyclerSpisocChatov.SpisocChatov
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.storage.FirebaseStorage
+import kotlinx.android.synthetic.main.activity_body_params_edit.*
+import kotlinx.android.synthetic.main.activity_load_eat.*
+import kotlinx.android.synthetic.main.activity_load_trainings.*
 
 import java.io.InputStream
 
@@ -32,130 +39,133 @@ class Load_Trainings : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_load_trainings)
-        /*val exercise1 = findViewById<EditText>(R.id.editExercise1)
-        val podhod1 = findViewById<EditText>(R.id.editPodhods1)
-        val weight1 = findViewById<EditText>(R.id.editTakeWeight1)
-        val comment1 = findViewById<EditText>(R.id.editComment1)
-        val exercise2 = findViewById<EditText>(R.id.editExercise1)
-        val podhod2 = findViewById<EditText>(R.id.editPodhods1)
-        val weight2 = findViewById<EditText>(R.id.editTakeWeight1)
-        val comment2 = findViewById<EditText>(R.id.editComment1)
-        val exercise3 = findViewById<EditText>(R.id.editExercise1)
-        val podhod3 = findViewById<EditText>(R.id.editPodhods1)
-        val weight3 = findViewById<EditText>(R.id.editTakeWeight1)
-        val comment3 = findViewById<EditText>(R.id.editComment1)
-        val exercise4 = findViewById<EditText>(R.id.editExercise1)
-        val podhod4 = findViewById<EditText>(R.id.editPodhods1)
-        val weight4 = findViewById<EditText>(R.id.editTakeWeight1)
-        val comment4 = findViewById<EditText>(R.id.editComment1)
-        val exercise5 = findViewById<EditText>(R.id.editExercise1)
-        val podhod5 = findViewById<EditText>(R.id.editPodhods1)
-        val weight5 = findViewById<EditText>(R.id.editTakeWeight1)
-        val comment5 = findViewById<EditText>(R.id.editComment1)
-        val exercise6 = findViewById<EditText>(R.id.editExercise1)
-        val podhod6 = findViewById<EditText>(R.id.editPodhods1)
-        val weight6 = findViewById<EditText>(R.id.editTakeWeight1)
-        val comment6 = findViewById<EditText>(R.id.editComment1)
-        val exercise7 = findViewById<EditText>(R.id.editExercise1)
-        val podhod7 = findViewById<EditText>(R.id.editPodhods1)
-        val weight7 = findViewById<EditText>(R.id.editTakeWeight1)
-        val comment7 = findViewById<EditText>(R.id.editComment1)
+        val radGrp = findViewById<RadioGroup>(R.id.tableRow2);
+        radGrp.setOnCheckedChangeListener { radGrp, optionId ->
+            run {
+                when (optionId) {
 
-       */
+                    R.id.button_day1 -> {
+                        eat1txt.clearComposingText()
+                        eat2txt.clearComposingText()
+                        eat3txt.clearComposingText()
+                        eat4txt.clearComposingText()
+                        eat5txt.clearComposingText()
+                    }
+                    R.id.button_day2 -> {
+                        eat1txt.clearComposingText()
+                        eat2txt.clearComposingText()
+                        eat3txt.clearComposingText()
+                        eat4txt.clearComposingText()
+                        eat5txt.clearComposingText()
+                    }
+                    R.id.button_day3 -> {
+                        eat1txt.clearComposingText()
+                        eat2txt.clearComposingText()
+                        eat3txt.clearComposingText()
+                        eat4txt.clearComposingText()
+                        eat5txt.clearComposingText()
+                    }
+                    else -> throw AssertionError()
+
+                }
+            }
+        }
 
     }
-   private val storage = FirebaseStorage.getInstance()
+    private val storage = FirebaseStorage.getInstance()
     private var VideoStorage = storage.reference.child("video_training").child("day1").child("video")
     val REQUEST_CODE = 100
 
+    private val ddb = FirebaseFirestore.getInstance()
 
-   fun loadTrenClick(view:View) {
+    fun loadTrenClick(view:View) {
         when (view.id){
             R.id.button_loadVideo1 ->{
-                var detected: Boolean =true
-
-                if(!detected) {
-                    chooseVideo()
-                    detected=true
+                if(button_day1.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day1").child("video1")
                 }
-                else {
-                    deleteVideo()
-                    detected=false
+                if(button_day2.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day2").child("video1")
                 }
+                if(button_day3.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day3").child("video1")
+                }
+                chooseVideo()
 
-                    }
+            }
             R.id.button_loadVideo2 ->{
-                var detected: Boolean =true
-
-                if(!detected) {
-                    chooseVideo()
-                    detected=true
+                if(button_day1.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day1").child("video2")
                 }
-                else {
-                    deleteVideo()
-                    detected=false
+                if(button_day2.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day2").child("video2")
                 }
-                    }
+                if(button_day3.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day3").child("video2")
+                }
+                chooseVideo()
+            }
             R.id.button_loadVideo3 ->{
-                var detected: Boolean =true
-
-                if(!detected) {
-                    chooseVideo()
-                    detected=true
+                if(button_day1.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day1").child("video3")
                 }
-                else {
-                    deleteVideo()
-                    detected=false
+                if(button_day2.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day2").child("video3")
                 }
-                    }
+                if(button_day3.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day3").child("video3")
+                }
+                chooseVideo()
+            }
             R.id.button_loadVideo4 ->{
-                var detected: Boolean =true
-
-                if(!detected) {
-                    chooseVideo()
-                    detected=true
+                if(button_day1.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day1").child("video4")
                 }
-                else {
-                    deleteVideo()
-                    detected=false
+                if(button_day2.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day2").child("video4")
                 }
-                   }
+                if(button_day3.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day3").child("video4")
+                }
+                chooseVideo()
+            }
             R.id.button_loadVideo5 ->{
-                var detected: Boolean =true
-
-                if(!detected) {
-                    chooseVideo()
-                    detected=true
+                if(button_day1.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day1").child("video5")
                 }
-                else {
-                    deleteVideo()
-                    detected=false
+                if(button_day2.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day2").child("video5")
                 }
-                    }
+                if(button_day3.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day3").child("video5")
+                }
+                chooseVideo()
+            }
             R.id.button_loadVideo6 ->{
-                var detected: Boolean =true
-
-                if(!detected) {
-                    chooseVideo()
-                    detected=true
+                if(button_day1.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day1").child("video6")
                 }
-                else {
-                    deleteVideo()
-                    detected=false
+                if(button_day2.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day2").child("video6")
                 }
-                   }
+                if(button_day3.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day3").child("video6")
+                }
+                chooseVideo()
+            }
             R.id.button_loadVideo7 ->{
-                var detected: Boolean =true
+                if(button_day1.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day1").child("video7")
+                }
+                if(button_day2.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day2").child("video7")
+                }
+                if(button_day3.isChecked){
+                    VideoStorage = storage.getReference().child("video_training").child("day3").child("video7")
+                }
+                chooseVideo()
+            }
 
-                if(!detected) {
-                    chooseVideo()
-                    detected=true
-                }
-                else {
-                    deleteVideo()
-                    detected=false
-                }
-                   }
             R.id.button_clients ->{
                 startActivity(Intent(this, ListClient::class.java))
             }
@@ -168,20 +178,231 @@ class Load_Trainings : AppCompatActivity() {
             R.id.profile ->{
                 startActivity(Intent(this, ProfileClient::class.java))
             }
-            R.id.button_day1 ->{
-                VideoStorage = storage.getReference().child("video_training").child("day1").child("video")
+            R.id.buttonSave->{
+                if(button_day1.isChecked) {
+                    val up= ddb.collection("training")
+                        .document("test_load" + "_2") /*здесь будет айди спортсмена*/
+                    if(editExercise1.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment1" ,editComment1.text.toString(),
+                                "Exercise1", editExercise1.text.toString(),
+                                "Podhod1",editPodhods1.text.toString(),
+                                "Weight1",editTakeWeight1.text.toString()
+                            )
+                    }
+                    if(ediExercise2.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment2" ,editComment2.text.toString(),
+                                "Exercise2", ediExercise2.text.toString(),
+                                "Podhod2",editPodhods2.text.toString(),
+                                "Weight2",editTakeWeight2.text.toString()
+                            )
+                    }
+                    if(ediExercise3.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment3" ,editComment3.text.toString(),
+                                "Exercise3", ediExercise3.text.toString(),
+                                "Podhod3",editPodhods3.text.toString(),
+                                "Weight3",editTakeWeight3.text.toString()
+                            )
+                    }
+                    if(ediExercise4.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment4" ,editComment4.text.toString(),
+                                "Exercise4", ediExercise4.text.toString(),
+                                "Podhod4",editPodhods4.text.toString(),
+                                "Weight4",editTakeWeight4.text.toString()
+                            )
+                    }
+                    if(ediExercise5.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment5" ,editComment5.text.toString(),
+                                "Exercise5", ediExercise5.text.toString(),
+                                "Podhod5",editPodhods5.text.toString(),
+                                "Weight5",editTakeWeight5.text.toString()
+                            )
+                    }
+                    if(ediExercise6.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment6" ,editComment6.text.toString(),
+                                "Exercise6", ediExercise6.text.toString(),
+                                "Podhod6",editPodhods6.text.toString(),
+                                "Weight6",editTakeWeight6.text.toString()
+                            )
+                    }
+                    if(ediExercise7.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment7" ,editComment7.text.toString(),
+                                "Exercise7", ediExercise7.text.toString(),
+                                "Podhod7",editPodhods7.text.toString(),
+                                "Weight7",editTakeWeight7.text.toString()
+                            )
+                            .addOnSuccessListener {}
+                    }
+
+                    Toast.makeText(
+                        baseContext, "Программа успешно загружена",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+                if(button_day2.isChecked){
+                    val up= ddb.collection("training")
+                        .document("test_load" + "_1") /*здесь будет айди спортсмена*/
+                    if(editExercise1.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment1" ,editComment1.text.toString(),
+                                "Exercise1", editExercise1.text.toString(),
+                                "Podhod1",editPodhods1.text.toString(),
+                                "Weight1",editTakeWeight1.text.toString()
+                            )
+                    }
+                    if(ediExercise2.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment2" ,editComment2.text.toString(),
+                                "Exercise2", ediExercise2.text.toString(),
+                                "Podhod2",editPodhods2.text.toString(),
+                                "Weight2",editTakeWeight2.text.toString()
+                            )
+                    }
+                    if(ediExercise3.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment3" ,editComment3.text.toString(),
+                                "Exercise3", ediExercise3.text.toString(),
+                                "Podhod3",editPodhods3.text.toString(),
+                                "Weight3",editTakeWeight3.text.toString()
+                            )
+                    }
+                    if(ediExercise4.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment4" ,editComment4.text.toString(),
+                                "Exercise4", ediExercise4.text.toString(),
+                                "Podhod4",editPodhods4.text.toString(),
+                                "Weight4",editTakeWeight4.text.toString()
+                            )
+                    }
+                    if(ediExercise5.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment5" ,editComment5.text.toString(),
+                                "Exercise5", ediExercise5.text.toString(),
+                                "Podhod5",editPodhods5.text.toString(),
+                                "Weight5",editTakeWeight5.text.toString()
+                            )
+                    }
+                    if(ediExercise6.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment6" ,editComment6.text.toString(),
+                                "Exercise6", ediExercise6.text.toString(),
+                                "Podhod6",editPodhods6.text.toString(),
+                                "Weight6",editTakeWeight6.text.toString()
+                            )
+                    }
+                    if(ediExercise7.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment7" ,editComment7.text.toString(),
+                                "Exercise7", ediExercise7.text.toString(),
+                                "Podhod7",editPodhods7.text.toString(),
+                                "Weight7",editTakeWeight7.text.toString()
+                            )
+                            .addOnSuccessListener {}
+                    }
+
+                    Toast.makeText(
+                        baseContext, "Программа успешно загружена",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
+                if(button_day3.isChecked){
+                    val up= ddb.collection("training")
+                        .document("test_load" + "_3") /*здесь будет айди спортсмена*/
+                    if(editExercise1.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment1" ,editComment1.text.toString(),
+                                "Exercise1", editExercise1.text.toString(),
+                                "Podhod1",editPodhods1.text.toString(),
+                                "Weight1",editTakeWeight1.text.toString()
+                            )
+                    }
+                    if(ediExercise2.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment2" ,editComment2.text.toString(),
+                                "Exercise2", ediExercise2.text.toString(),
+                                "Podhod2",editPodhods2.text.toString(),
+                                "Weight2",editTakeWeight2.text.toString()
+                            )
+                    }
+                    if(ediExercise3.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment3" ,editComment3.text.toString(),
+                                "Exercise3", ediExercise3.text.toString(),
+                                "Podhod3",editPodhods3.text.toString(),
+                                "Weight3",editTakeWeight3.text.toString()
+                            )
+                    }
+                    if(ediExercise4.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment4" ,editComment4.text.toString(),
+                                "Exercise4", ediExercise4.text.toString(),
+                                "Podhod4",editPodhods4.text.toString(),
+                                "Weight4",editTakeWeight4.text.toString()
+                            )
+                    }
+                    if(ediExercise5.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment5" ,editComment5.text.toString(),
+                                "Exercise5", ediExercise5.text.toString(),
+                                "Podhod5",editPodhods5.text.toString(),
+                                "Weight5",editTakeWeight5.text.toString()
+                            )
+                    }
+                    if(ediExercise6.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment6" ,editComment6.text.toString(),
+                                "Exercise6", ediExercise6.text.toString(),
+                                "Podhod6",editPodhods6.text.toString(),
+                                "Weight6",editTakeWeight6.text.toString()
+                            )
+                    }
+                    if(ediExercise7.text.toString().isNotEmpty()){
+                        up
+                            .update(
+                                "Comment7" ,editComment7.text.toString(),
+                                "Exercise7", ediExercise7.text.toString(),
+                                "Podhod7",editPodhods7.text.toString(),
+                                "Weight7",editTakeWeight7.text.toString()
+                            )
+                            .addOnSuccessListener {}
+                    }
+
+                    Toast.makeText(
+                        baseContext, "Программа успешно загружена",
+                        Toast.LENGTH_SHORT
+                    ).show()
+
+                }
             }
-            R.id.button_day2 ->{
-                VideoStorage = storage.getReference().child("video_training").child("day2").child("video")
-            }
-            R.id.button_day3 ->{
-                VideoStorage = storage.getReference().child("video_training").child("day3").child("video")
-            }
-        }
-    }
-    private fun deleteVideo(){
-        VideoStorage.delete().addOnSuccessListener {
-            chooseVideo()
+
         }
     }
 
@@ -194,7 +415,7 @@ class Load_Trainings : AppCompatActivity() {
         super.onActivityResult(requestCode, resultCode, data)
         if (resultCode == Activity.RESULT_OK && data!=null) {
 
-            val input: InputStream? = data!!.data?.let { contentResolver.openInputStream(it) }
+            val input: InputStream? = data.data?.let { contentResolver.openInputStream(it) }
             val uploadTask = input?.let { VideoStorage.putStream(it) }
 
             uploadTask!!.addOnCompleteListener {

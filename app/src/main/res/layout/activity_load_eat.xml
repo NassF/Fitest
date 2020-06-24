@@ -58,7 +58,7 @@
             android:background="@drawable/mn_selector"
             android:button="@null"
             android:checked="true"
-            android:onClick="eatLoadClick" />
+            />
 
         <RadioButton
             android:id="@+id/tuesday"
@@ -78,7 +78,7 @@
             android:layout_weight="1"
             android:background="@drawable/w_selector"
             android:button="@null"
-            android:onClick="eatLoadClick" />
+            />
 
         <RadioButton
             android:id="@+id/thursday"
@@ -88,7 +88,7 @@
             android:layout_weight="1"
             android:background="@drawable/thu_selector"
             android:button="@null"
-            android:onClick="eatLoadClick" />
+            />
 
         <RadioButton
             android:id="@+id/friday"
@@ -98,7 +98,7 @@
             android:layout_weight="1"
             android:background="@drawable/fri_selector"
             android:button="@null"
-            android:onClick="eatLoadClick" />
+            />
 
         <RadioButton
             android:id="@+id/saturday"
@@ -107,8 +107,7 @@
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@drawable/sat_selector"
-            android:button="@null"
-            android:onClick="eatLoadClick" />
+            android:button="@null"/>
 
         <RadioButton
             android:id="@+id/sunday"
@@ -117,8 +116,7 @@
             android:layout_marginEnd="5dp"
             android:layout_weight="1"
             android:background="@drawable/sun_selector"
-            android:button="@null"
-            android:onClick="eatLoadClick" />
+            android:button="@null"/>
     </RadioGroup>
 
     <View
@@ -199,6 +197,7 @@
                     android:layout_marginTop="2dp"
                     android:background="@drawable/qwesx"
                     android:ems="10"
+                    android:maxLength="300"
                     android:gravity="start|top"
                     android:inputType="textMultiLine"
                     android:textColor="@android:color/black" />
